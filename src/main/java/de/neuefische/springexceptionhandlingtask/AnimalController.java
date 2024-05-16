@@ -1,15 +1,34 @@
 package de.neuefische.springexceptionhandlingtask;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import de.neuefische.springexceptionhandlingtask.exception.ErrorMessage;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/animals")
 public class AnimalController {
+
+    //coding2: local exception handler
+//    @ExceptionHandler(IllegalArgumentException.class)
+//    public ErrorMessage handelIllegalArgumentException(IllegalArgumentException exception){
+//        exception.printStackTrace();
+//        return new ErrorMessage(exception.getMessage());
+//    }
+//
+//    @ExceptionHandler(NoSuchElementException.class)
+//    public ErrorMessage handelNoSuchElementException(NoSuchElementException exception){
+//        exception.printStackTrace();
+//        return new ErrorMessage(exception.getMessage());
+//    }
+
+/*    @ExceptionHandler(Exception.class)
+    public ErrorMessage handelException(Exception exception){
+        exception.printStackTrace();
+        return new ErrorMessage(exception.getMessage());
+    }*/
+
+
 
     @GetMapping("{species}")
     String getAnimalSpecies(@PathVariable String species) {
